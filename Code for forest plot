@@ -1,5 +1,7 @@
 #Random effects model and freeman-tukey double arcsine transformation
-#Normal model
+install.packages("meta")
+library("meta")
+#Normal model - for a standard forest plot
 w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`, wadata$Author, #Change this line to your variables
          data = NULL, subset = NULL,
          sm="PFT", #PFT function is the freeman-tukey double arcsine transformation
@@ -9,7 +11,7 @@ w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`,
          title="", complab="", outclab="",
          print.byvar=TRUE,
          warn=TRUE)
-#Model by variable
+#Model by variable - to create a foresrt plot into different variables
 w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`, wadata$Author, #Change this line to your variables
               data = NULL, subset = NULL,
               sm="PFT", byvar=wadata$`Glioma Entity`, #PFT function is the freeman-tukey double arcsine transformation and byvar function seperates by variable
@@ -19,7 +21,7 @@ w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`,
               title="", complab="", outclab="",
               print.byvar=TRUE,
               warn=TRUE)
-#Create forest plot 
+#Create forest plot and adjust to what you would like 
 png(file='subtype_plot.png', width=800, height=15000) #These can be adjusted accordingly, this setting is to download a large plot
 forest(w,
        rightlabs = c("g","95% CI","weight"), 
