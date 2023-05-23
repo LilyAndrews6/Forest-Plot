@@ -9,7 +9,7 @@ w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`,
          level = 0.95,
          comb.fixed=FALSE, comb.random=TRUE, #comb.random=TRUE selects the random effect model
          title="", complab="", outclab="",
-         print.byvar=FALSE,
+         print.byvar=TRUE,
          warn=TRUE)
 #Model by variable - to create a forest plot into different variables
 w <- metaprop(wadata$`V600 mutation prevalence`, wadata$`Total sample size (n)`, wadata$Author, #Change this line to your variables
